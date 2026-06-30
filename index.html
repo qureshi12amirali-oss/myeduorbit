@@ -7,21 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
     <style>
-        /* ===== ALL STYLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(145deg, #f2f7ff 0%, #e9f0fa 100%);
             color: #1a2c3e;
             line-height: 1.5;
             min-height: 100vh;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -38,7 +35,6 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             padding: 16px 0;
         }
-
         .nav {
             display: flex;
             justify-content: space-between;
@@ -46,7 +42,6 @@
             flex-wrap: wrap;
             gap: 16px;
         }
-
         .logo {
             font-size: 1.7rem;
             font-weight: 700;
@@ -57,35 +52,29 @@
             letter-spacing: -0.3px;
             text-decoration: none;
         }
-
         .logo i {
             color: #e53e3e;
         }
-
         .nav-links {
             display: flex;
             gap: 28px;
             align-items: center;
             flex-wrap: wrap;
         }
-
         .nav-links a {
             text-decoration: none;
             font-weight: 500;
             color: #2c4b6c;
             transition: color 0.2s;
         }
-
         .nav-links a:hover {
             color: #0f5f8b;
         }
-
         .nav-links a.active {
             color: #0f5f8b;
             font-weight: 600;
             border-bottom: 2px solid #0f5f8b;
         }
-
         .btn-outline {
             border: 1.5px solid #1e5a7d;
             padding: 8px 20px;
@@ -96,12 +85,10 @@
             text-decoration: none;
             color: #1e5a7d;
         }
-
         .btn-outline:hover {
             background: #1e5a7d10;
             transform: scale(0.97);
         }
-
         .btn-primary {
             display: inline-block;
             background: linear-gradient(105deg, #1e5a7d, #2c7cb6);
@@ -116,13 +103,11 @@
             cursor: pointer;
             font-size: 1rem;
         }
-
         .btn-primary:hover {
             background: linear-gradient(105deg, #164a66, #246b9e);
             transform: translateY(-2px);
             box-shadow: 0 14px 24px rgba(0, 80, 120, 0.25);
         }
-
         .btn-whatsapp {
             background: #25D366;
             color: white;
@@ -137,7 +122,6 @@
             gap: 6px;
             transition: all 0.2s;
         }
-
         .btn-whatsapp:hover {
             background: #1da851;
             transform: scale(0.97);
@@ -148,7 +132,6 @@
             padding: 48px 0 32px;
             text-align: center;
         }
-
         .page-hero h1 {
             font-size: 2.8rem;
             font-weight: 800;
@@ -160,14 +143,12 @@
             color: transparent;
             margin-bottom: 12px;
         }
-
         .page-hero p {
             font-size: 1.1rem;
             color: #2c3e50;
             max-width: 650px;
             margin: 0 auto;
         }
-
         .stats-banner {
             display: flex;
             justify-content: center;
@@ -175,17 +156,14 @@
             flex-wrap: wrap;
             margin: 24px 0 8px;
         }
-
         .stat-item {
             text-align: center;
         }
-
         .stat-number {
             font-size: 1.8rem;
             font-weight: 700;
             color: #1e5a7d;
         }
-
         .stat-label {
             font-size: 0.85rem;
             color: #5b6f82;
@@ -204,21 +182,18 @@
             align-items: center;
             border: 1px solid rgba(0, 0, 0, 0.04);
         }
-
         .filter-group {
             display: flex;
             align-items: center;
             gap: 6px;
             flex-wrap: wrap;
         }
-
         .filter-group label {
             font-weight: 500;
             font-size: 0.8rem;
             color: #475569;
             white-space: nowrap;
         }
-
         .filter-group select {
             padding: 6px 14px;
             border: 1px solid #d1d9e6;
@@ -229,12 +204,10 @@
             cursor: pointer;
             min-width: 120px;
         }
-
         .filter-group select:focus {
             border-color: #1e5a7d;
             box-shadow: 0 0 0 3px rgba(30, 90, 125, 0.1);
         }
-
         .clear-btn {
             background: none;
             border: none;
@@ -246,11 +219,9 @@
             border-radius: 30px;
             transition: 0.2s;
         }
-
         .clear-btn:hover {
             background: #fee2e2;
         }
-
         .results-count {
             margin-left: auto;
             font-size: 0.9rem;
@@ -268,7 +239,6 @@
             gap: 24px;
             margin-bottom: 48px;
         }
-
         .program-card {
             background: white;
             border-radius: 24px;
@@ -279,12 +249,10 @@
             flex-direction: column;
             border: 1px solid #edf2f7;
         }
-
         .program-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
         }
-
         .card-badge {
             display: inline-block;
             font-size: 0.65rem;
@@ -296,40 +264,33 @@
             text-transform: uppercase;
             letter-spacing: 0.3px;
         }
-
         .card-badge.scholarship {
             background: #fef3c7;
             color: #92400e;
         }
-
         .card-badge.popular {
             background: #dbeafe;
             color: #1e40af;
         }
-
         .card-badge.budget {
             background: #d1fae5;
             color: #065f46;
         }
-
         .card-badge.default {
             background: #eef2ff;
             color: #4338ca;
         }
-
         .card-title {
             font-size: 1.15rem;
             font-weight: 600;
             color: #0f2b4b;
             margin-bottom: 4px;
         }
-
         .card-university {
             font-size: 0.9rem;
             color: #4b5563;
             margin-bottom: 10px;
         }
-
         .card-meta {
             display: flex;
             flex-wrap: wrap;
@@ -338,29 +299,24 @@
             color: #1e293b;
             margin-bottom: 10px;
         }
-
         .card-meta i {
             width: 1.1rem;
             color: #64748b;
         }
-
         .card-tuition {
             font-weight: 700;
             color: #0f2b4b;
             font-size: 1.1rem;
         }
-
         .card-tuition.free {
             color: #059669;
         }
-
         .card-benefits {
             display: flex;
             flex-wrap: wrap;
             gap: 4px 8px;
             margin: 8px 0 14px;
         }
-
         .benefit-tag {
             background: #f1f5f9;
             padding: 2px 12px;
@@ -370,19 +326,11 @@
             color: #1e293b;
             border: 1px solid #e2e8f0;
         }
-
-        .benefit-tag.highlight {
-            background: #dbeafe;
-            border-color: #93c5fd;
-            color: #1e40af;
-        }
-
         .benefit-tag.scholarship-tag {
             background: #fef3c7;
             border-color: #f59e0b;
             color: #92400e;
         }
-
         .card-footer {
             margin-top: auto;
             display: flex;
@@ -393,7 +341,6 @@
             flex-wrap: wrap;
             gap: 8px;
         }
-
         .scholarship-badge {
             background: #fef9c3;
             color: #854d0e;
@@ -405,8 +352,6 @@
             align-items: center;
             gap: 4px;
         }
-
-        /* ===== NO RESULTS ===== */
         .no-results {
             grid-column: 1 / -1;
             text-align: center;
@@ -415,12 +360,10 @@
             border-radius: 24px;
             color: #64748b;
         }
-
         .no-results i {
             font-size: 2.5rem;
             color: #94a3b8;
         }
-
         .no-results p {
             margin-top: 12px;
             font-size: 1.05rem;
@@ -435,12 +378,10 @@
             margin: 20px 0 48px;
             box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7), 0 10px 25px -12px rgba(0, 0, 0, 0.1);
         }
-
         .cta-section h2 {
             font-size: 1.8rem;
             margin-bottom: 12px;
         }
-
         .cta-section p {
             margin-bottom: 24px;
             font-size: 1.05rem;
@@ -457,21 +398,18 @@
             flex-direction: column;
             gap: 16px;
         }
-
         .social-links {
             display: flex;
             justify-content: center;
             gap: 28px;
             flex-wrap: wrap;
         }
-
         .social-links a {
             color: #2c4b6c;
             text-decoration: none;
             font-weight: 500;
             transition: 0.2s;
         }
-
         .social-links a:hover {
             color: #0f5f8b;
             text-decoration: underline;
@@ -483,7 +421,6 @@
             text-align: center;
             padding: 60px 20px;
         }
-
         .spinner {
             display: inline-block;
             width: 40px;
@@ -493,7 +430,6 @@
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
-
         @keyframes spin {
             to {
                 transform: rotate(360deg);
@@ -516,80 +452,64 @@
             opacity: 0;
             transition: all 0.3s ease;
         }
-
         .toast.show {
             transform: translateY(0);
             opacity: 1;
         }
-
         .toast i {
             margin-right: 8px;
         }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 12px;
             }
-
             .nav-links {
                 justify-content: center;
                 gap: 16px;
             }
-
             .page-hero h1 {
                 font-size: 2rem;
             }
-
             .filters-bar {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 10px;
                 padding: 16px;
             }
-
             .filter-group select {
                 flex: 1;
                 min-width: 80px;
             }
-
             .results-count {
                 margin-left: 0;
                 text-align: center;
             }
-
             .program-grid {
                 grid-template-columns: 1fr;
             }
-
             .stats-banner {
                 gap: 20px;
             }
-
             .stat-number {
                 font-size: 1.4rem;
             }
-
             .cta-section {
                 padding: 32px 20px;
             }
-
             .cta-section h2 {
                 font-size: 1.4rem;
             }
         }
-
         @media (max-width: 480px) {
             .container {
                 padding: 0 16px;
             }
-
             .program-card {
                 padding: 18px;
             }
-
             .card-footer {
                 flex-direction: column;
                 align-items: stretch;
@@ -620,7 +540,6 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <div class="container">
-        <!-- Hero -->
         <section class="page-hero">
             <h1>🎯 Explore Programs & Scholarships</h1>
             <p>Find language programs, degree courses, and scholarships — all in one place.</p>
@@ -640,7 +559,6 @@
             </div>
         </section>
 
-        <!-- Filters -->
         <div class="filters-bar">
             <div class="filter-group">
                 <label><i class="fas fa-map-marker-alt"></i> City</label>
@@ -648,7 +566,6 @@
                     <option value="all">All Cities</option>
                 </select>
             </div>
-
             <div class="filter-group">
                 <label><i class="fas fa-tag"></i> Type</label>
                 <select id="typeFilter">
@@ -659,7 +576,6 @@
                     <option value="Degree">Degree</option>
                 </select>
             </div>
-
             <div class="filter-group">
                 <label><i class="fas fa-dollar-sign"></i> Budget</label>
                 <select id="tuitionFilter">
@@ -671,7 +587,6 @@
                     <option value="30000">Under ¥30,000</option>
                 </select>
             </div>
-
             <div class="filter-group">
                 <label><i class="fas fa-sort"></i> Sort</label>
                 <select id="sortFilter">
@@ -681,17 +596,14 @@
                     <option value="popular">Most Popular</option>
                 </select>
             </div>
-
             <div class="filter-group">
                 <button class="clear-btn" id="clearFilters">
                     <i class="fas fa-undo"></i> Reset
                 </button>
             </div>
-
             <div class="results-count" id="resultsCount">Loading...</div>
         </div>
 
-        <!-- Grid -->
         <div class="program-grid" id="programGrid">
             <div class="loading-grid">
                 <div class="spinner"></div>
@@ -699,7 +611,6 @@
             </div>
         </div>
 
-        <!-- CTA -->
         <div class="cta-section">
             <h2>🚀 Need personalized advice?</h2>
             <p>Get 3–5 university recommendations tailored to your profile — <strong>100% free</strong>.</p>
@@ -728,20 +639,19 @@
         <div>© 2026 AI Study China — honest scholarship guidance for international students</div>
     </div>
 
-    <!-- ===== TOAST ===== -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
         <span id="toastMessage">Ready!</span>
     </div>
 
     <!-- ============================================================ -->
-    <!-- ===== JAVASCRIPT (at the bottom, after all HTML) ===== -->
+    <!-- ===== JAVASCRIPT - SIMPLIFIED AND GUARANTEED TO WORK ===== -->
     <!-- ============================================================ -->
     <script>
         // ============================================================
-        // PROGRAM DATA (hardcoded for now - will be replaced by JSON)
+        // DATA - 15 programs
         // ============================================================
-        var PROGRAM_DATA = [{
+        const programsData = [{
             id: 1,
             name: "Chinese Language Program",
             university: "Yantai Vocational College",
@@ -909,172 +819,200 @@
         }];
 
         // ============================================================
-        // APP LOGIC - All functions defined here
+        // Wait for DOM to be ready
         // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
 
-        // DOM refs
-        var grid = document.getElementById('programGrid');
-        var cityFilter = document.getElementById('cityFilter');
-        var typeFilter = document.getElementById('typeFilter');
-        var tuitionFilter = document.getElementById('tuitionFilter');
-        var sortFilter = document.getElementById('sortFilter');
-        var clearBtn = document.getElementById('clearFilters');
-        var resultsCount = document.getElementById('resultsCount');
-        var totalProgramsEl = document.getElementById('totalPrograms');
-        var totalScholarshipsEl = document.getElementById('totalScholarships');
-        var totalCitiesEl = document.getElementById('totalCities');
+            // Get DOM elements
+            const grid = document.getElementById('programGrid');
+            const cityFilter = document.getElementById('cityFilter');
+            const typeFilter = document.getElementById('typeFilter');
+            const tuitionFilter = document.getElementById('tuitionFilter');
+            const sortFilter = document.getElementById('sortFilter');
+            const clearBtn = document.getElementById('clearFilters');
+            const resultsCount = document.getElementById('resultsCount');
+            const totalProgramsEl = document.getElementById('totalPrograms');
+            const totalScholarshipsEl = document.getElementById('totalScholarships');
+            const totalCitiesEl = document.getElementById('totalCities');
 
-        var programs = [];
-
-        // ============================================================
-        // Get badge class
-        // ============================================================
-        function getBadgeClass(badge) {
-            if (!badge) return 'default';
-            var b = badge.toLowerCase();
-            if (b.indexOf('scholarship') !== -1 || b.indexOf('full') !== -1) return 'scholarship';
-            if (b.indexOf('popular') !== -1 || b.indexOf('top') !== -1) return 'popular';
-            if (b.indexOf('budget') !== -1 || b.indexOf('cheap') !== -1 || b.indexOf('lowest') !== -1) return 'budget';
-            return 'default';
-        }
-
-        // ============================================================
-        // Show toast notification
-        // ============================================================
-        function showToast(message) {
-            var toast = document.getElementById('toast');
-            var toastMessage = document.getElementById('toastMessage');
-            if (!toast || !toastMessage) return;
-            toastMessage.textContent = message;
-            toast.classList.add('show');
-            setTimeout(function() {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // ============================================================
-        // Populate city filter
-        // ============================================================
-        function populateFilters() {
-            var cities = [];
-            for (var i = 0; i < programs.length; i++) {
-                if (cities.indexOf(programs[i].city) === -1) {
-                    cities.push(programs[i].city);
-                }
-            }
-            cities.sort();
-
-            var citySelect = document.getElementById('cityFilter');
-            citySelect.innerHTML = '<option value="all">All Cities</option>';
-            for (var j = 0; j < cities.length; j++) {
-                var opt = document.createElement('option');
-                opt.value = cities[j];
-                opt.textContent = cities[j];
-                citySelect.appendChild(opt);
-            }
-        }
-
-        // ============================================================
-        // Update stats
-        // ============================================================
-        function updateStats() {
-            var total = programs.length;
-            var scholarships = 0;
-            for (var i = 0; i < programs.length; i++) {
-                if (programs[i].scholarship) scholarships++;
+            // ============================================================
+            // Helper functions
+            // ============================================================
+            function getBadgeClass(badge) {
+                if (!badge) return 'default';
+                const b = badge.toLowerCase();
+                if (b.includes('scholarship') || b.includes('full')) return 'scholarship';
+                if (b.includes('popular') || b.includes('top')) return 'popular';
+                if (b.includes('budget') || b.includes('cheap') || b.includes('lowest')) return 'budget';
+                return 'default';
             }
 
-            var cities = [];
-            for (var j = 0; j < programs.length; j++) {
-                if (cities.indexOf(programs[j].city) === -1) {
-                    cities.push(programs[j].city);
-                }
+            function showToast(message) {
+                const toast = document.getElementById('toast');
+                const toastMessage = document.getElementById('toastMessage');
+                if (!toast || !toastMessage) return;
+                toastMessage.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
             }
 
-            totalProgramsEl.textContent = total;
-            totalScholarshipsEl.textContent = scholarships;
-            totalCitiesEl.textContent = cities.length;
-        }
-
-        // ============================================================
-        // Main render function
-        // ============================================================
-        function render() {
-            var city = cityFilter.value;
-            var type = typeFilter.value;
-            var tuitionMax = tuitionFilter.value;
-            var sort = sortFilter.value;
-
-            // Filter
-            var filtered = [];
-            for (var i = 0; i < programs.length; i++) {
-                var p = programs[i];
-                if (city !== 'all' && p.city !== city) continue;
-                if (type !== 'all' && p.type !== type) continue;
-                if (tuitionMax !== 'all') {
-                    var max = parseInt(tuitionMax, 10);
-                    if (p.tuition > max) continue;
-                }
-                filtered.push(p);
-            }
-
-            // Sort
-            if (sort === 'price-asc') {
-                filtered.sort(function(a, b) { return a.tuition - b.tuition; });
-            } else if (sort === 'price-desc') {
-                filtered.sort(function(a, b) { return b.tuition - a.tuition; });
-            } else if (sort === 'name') {
-                filtered.sort(function(a, b) {
-                    if (a.name < b.name) return -1;
-                    if (a.name > b.name) return 1;
-                    return 0;
+            // ============================================================
+            // Populate city filter
+            // ============================================================
+            function populateFilters() {
+                const cities = [...new Set(programsData.map(p => p.city))].sort();
+                cityFilter.innerHTML = '<option value="all">All Cities</option>';
+                cities.forEach(city => {
+                    const opt = document.createElement('option');
+                    opt.value = city;
+                    opt.textContent = city;
+                    cityFilter.appendChild(opt);
                 });
-            } else if (sort === 'popular') {
-                filtered.sort(function(a, b) {
-                    return (b.popular ? 1 : 0) - (a.popular ? 1 : 0);
-                });
-            } else {
-                filtered.sort(function(a, b) { return a.tuition - b.tuition; });
             }
 
-            // Update count
-            resultsCount.textContent = 'Showing ' + filtered.length + ' program' + (filtered.length !== 1 ? 's' : '');
-
-            // Render
-            if (filtered.length === 0) {
-                grid.innerHTML = '<div class="no-results"><i class="fas fa-search"></i><p>No programs match your filters. Try adjusting your criteria.</p></div>';
-                return;
+            // ============================================================
+            // Update stats
+            // ============================================================
+            function updateStats() {
+                const total = programsData.length;
+                const scholarships = programsData.filter(p => p.scholarship).length;
+                const cities = new Set(programsData.map(p => p.city)).size;
+                totalProgramsEl.textContent = total;
+                totalScholarshipsEl.textContent = scholarships;
+                totalCitiesEl.textContent = cities;
             }
 
-            var html = '';
-            for (var k = 0; k < filtered.length; k++) {
-                var p = filtered[k];
+            // ============================================================
+            // Main render function
+            // ============================================================
+            function render() {
+                const city = cityFilter.value;
+                const type = typeFilter.value;
+                const tuitionMax = tuitionFilter.value;
+                const sort = sortFilter.value;
 
-                var tuitionDisplay = p.tuition === 0 ? 'FREE' : '¥' + p.tuition.toLocaleString() + '/year';
-                var badgeClass = getBadgeClass(p.badge);
-
-                var scholarshipBadge = '';
-                if (p.scholarship) {
-                    scholarshipBadge = '<span class="scholarship-badge"><i class="fas fa-award"></i> Scholarship Available</span>';
-                }
-
-                var benefitsHTML = '';
-                for (var b = 0; b < p.benefits.length; b++) {
-                    var benefit = p.benefits[b];
-                    var cls = 'benefit-tag';
-                    if (benefit.toLowerCase().indexOf('scholarship') !== -1 ||
-                        benefit.toLowerCase().indexOf('free') !== -1 ||
-                        benefit.toLowerCase().indexOf('stipend') !== -1) {
-                        cls += ' scholarship-tag';
+                // Filter
+                let filtered = programsData.filter(p => {
+                    if (city !== 'all' && p.city !== city) return false;
+                    if (type !== 'all' && p.type !== type) return false;
+                    if (tuitionMax !== 'all') {
+                        const max = parseInt(tuitionMax);
+                        if (p.tuition > max) return false;
                     }
-                    benefitsHTML += '<span class="' + cls + '">' + benefit + '</span>';
+                    return true;
+                });
+
+                // Sort
+                switch (sort) {
+                    case 'price-asc':
+                        filtered.sort((a, b) => a.tuition - b.tuition);
+                        break;
+                    case 'price-desc':
+                        filtered.sort((a, b) => b.tuition - a.tuition);
+                        break;
+                    case 'name':
+                        filtered.sort((a, b) => a.name.localeCompare(b.name));
+                        break;
+                    case 'popular':
+                        filtered.sort((a, b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0));
+                        break;
+                    default:
+                        filtered.sort((a, b) => a.tuition - b.tuition);
                 }
 
-                var whatsappNumber = '8618091995742';
-                var whatsappMsg = encodeURIComponent('Hi! I\'m interested in "' + p.name + '" at ' + p.university +
-                    '. Can you tell me more?');
+                // Update count
+                resultsCount.textContent = `Showing ${filtered.length} program${filtered.length !== 1 ? 's' : ''}`;
 
-                html += '<div class="program-card">';
-                html += '<span class="card-badge ' + badgeClass + '">' + (p.badge || 'Program') + '</span>';
-                html += '<div class="card-title">' + p.name + '</div>';
-                html += '<div class="card-university">' + p
+                // No results
+                if (filtered.length === 0) {
+                    grid.innerHTML = `
+                        <div class="no-results">
+                            <i class="fas fa-search"></i>
+                            <p>No programs match your filters. Try adjusting your criteria.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Build HTML
+                let html = '';
+                filtered.forEach(p => {
+                    const tuitionDisplay = p.tuition === 0 ? 'FREE' : `¥${p.tuition.toLocaleString()}/year`;
+                    const badgeClass = getBadgeClass(p.badge);
+                    const scholarshipBadge = p.scholarship ?
+                        `<span class="scholarship-badge"><i class="fas fa-award"></i> Scholarship Available</span>` :
+                        '';
+
+                    const benefitsHTML = p.benefits.map(b => {
+                        let cls = 'benefit-tag';
+                        if (b.toLowerCase().includes('scholarship') ||
+                            b.toLowerCase().includes('free') ||
+                            b.toLowerCase().includes('stipend')) {
+                            cls += ' scholarship-tag';
+                        }
+                        return `<span class="${cls}">${b}</span>`;
+                    }).join('');
+
+                    const whatsappNumber = '8618091995742';
+                    const whatsappMsg = encodeURIComponent(
+                        `Hi! I'm interested in "${p.name}" at ${p.university}. Can you tell me more?`
+                    );
+
+                    html += `
+                        <div class="program-card">
+                            <span class="card-badge ${badgeClass}">${p.badge || 'Program'}</span>
+                            <div class="card-title">${p.name}</div>
+                            <div class="card-university">${p.university}</div>
+                            <div class="card-meta">
+                                <span><i class="fas fa-map-pin"></i> ${p.city}</span>
+                                <span><i class="fas fa-tag"></i> ${p.type}</span>
+                                <span class="card-tuition ${p.tuition === 0 ? 'free' : ''}">${tuitionDisplay}</span>
+                            </div>
+                            <div class="card-benefits">${benefitsHTML}</div>
+                            <div class="card-footer">
+                                <a href="https://wa.me/${whatsappNumber}?text=${whatsappMsg}" 
+                                   class="btn-whatsapp" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Ask on WhatsApp
+                                </a>
+                                ${scholarshipBadge}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                grid.innerHTML = html;
+            }
+
+            // ============================================================
+            // Event listeners
+            // ============================================================
+            cityFilter.addEventListener('change', render);
+            typeFilter.addEventListener('change', render);
+            tuitionFilter.addEventListener('change', render);
+            sortFilter.addEventListener('change', render);
+
+            clearBtn.addEventListener('click', function() {
+                cityFilter.value = 'all';
+                typeFilter.value = 'all';
+                tuitionFilter.value = 'all';
+                sortFilter.value = 'price-asc';
+                render();
+                showToast('🔄 Filters reset');
+            });
+
+            // ============================================================
+            // Initialize
+            // ============================================================
+            populateFilters();
+            updateStats();
+            render();
+            showToast('✅ ' + programsData.length + ' programs loaded');
+
+            // Log to console for debugging
+            console.log('Programs page initialized!');
+            console.log('Total programs:', programsData.length);
+
+        }); // end DOMContentLoaded
+    </script>
+</body>
+</html>

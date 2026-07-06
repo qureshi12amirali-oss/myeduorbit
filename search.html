@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Universities</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar container"><div class="logo">AI<span>StudyOrbit</span></div>
+    <nav><a href="index.html">Home</a><a href="search.html">Universities</a><a href="assessment.html">Assessment</a><a href="login.html" class="btn-primary">Login</a></nav>
+  </header>
+  <main class="container">
+    <h2 class="section-title">Find Your University</h2>
+    <div class="search-section">
+      <div class="search-row">
+        <input type="text" id="searchInput" placeholder="Search by name...">
+        <select id="provinceFilter"><option value="">All Provinces</option><option value="Beijing">Beijing</option><option value="Shanghai">Shanghai</option><option value="Guangdong">Guangdong</option><option value="Liaoning">Liaoning</option><option value="Sichuan">Sichuan</option></select>
+        <select id="tierFilter"><option value="">City Tier</option><option value="Tier1">Tier 1</option><option value="Tier2">Tier 2</option><option value="Tier3">Tier 3</option></select>
+        <select id="degreeFilter"><option value="">Degree</option><option value="Bachelor">Bachelor</option><option value="Master">Master</option><option value="PhD">PhD</option><option value="Diploma">Diploma</option></select>
+        <button onclick="performSearch()">Search</button>
+      </div>
+      <div id="searchResults" class="result-grid"></div>
+    </div>
+  </main>
+  <footer class="footer container"><p>© 2026 AI Study Orbit</p></footer>
+  <script>
+    const mockUniversities = [
+      { id:1, name:"Peking University", city:"Beijing", province:"Beijing", tier:"Tier1", degree:"Bachelor, Master, PhD", language:"Both" },
+      { id:2, name:"Tsinghua University", city:"Beijing", province:"Beijing", tier:"Tier1", degree:"Bachelor, Master, PhD", language:"Both" },
+      { id:3, name:"Shanghai Jiao Tong University", city:"Shanghai", province:"Shanghai", tier:"Tier1", degree:"Bachelor, Master, PhD", language:"English" },
+      { id:4, name:"Liaoning Ecological Engineering Vocational College", city:"Shenyang", province:"Liaoning", tier:"Tier2", degree:"Diploma", language:"Chinese" },
+      { id:5, name:"Sichuan University", city:"Chengdu", province:"Sichuan", tier:"Tier2", degree:"Bachelor, Master, PhD", language:"Both" },
+      { id:6, name:"Wuhan University", city:"Wuhan", province:"Guangdong", tier:"Tier2", degree:"Bachelor, Master, PhD", language:"Chinese" }
+    ];
+    function performSearch() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      const province = document.getElementById('provinceFilter').value;
+      const tier = document.getElementById('tierFilter').value;
+      const degree = document.getElementById('degreeFilter').value.toLowerCase();
+      const results = mockUniversities.filter(u => {
+        let match = true;
+        if (q && !u.name.toLowerCase().includes(q)) match = false;
+        if (province && u.province !== province) match = false;
+        if (tier && u.tier !== tier) match = false;
+        if (degree && !u.degree.toLowerCase().includes(degree)) match = false;
+        return match;
+      });
+      const container = document.getElementById('searchResults');
+      if (!results.length) { container.innerHTML = `<p class="text-muted">No universities found.</p>`; return; }
+      container.innerHTML = results.map(u => `
+        <div class="uni-card">
+          <h4>${u.name}</h4>
+          <div class="location">${u.city}, ${u.province}</div>
+          <div class="tags"><span>${u.degree}</span><span>${u.language}</span><span>${u.tier}</span></div>
+          <div class="actions"><a href="#" style="color:#2563eb;">View →</a><button class="btn-primary" style="padding:4px 16px;">Apply</button></div>
+        </div>
+      `).join('');
+    }
+    document.addEventListener('DOMContentLoaded', performSearch);
+  </script>
+</body>
+</html>

@@ -1,42 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free AI Assessment</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AI Study China – Free Scholarship Advisor</title>
+    <style>
+        /* --- RESET & BASE (same as your current) --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(145deg, #f2f7ff 0%, #e9f0fa 100%);
+            color: #1a2c3e;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- HEADER --- */
+        .header {
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 16px 0;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0f2b3d, #1e4a6e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c4b6c;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #0f5f8b; }
+        .btn-outline {
+            border: 1.5px solid #1e5a7d;
+            padding: 8px 20px;
+            border-radius: 40px;
+            background: transparent;
+            font-weight: 600;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .btn-outline:hover {
+            background: #1e5a7d10;
+            transform: scale(0.97);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(105deg, #1e5a7d, #2c7cb6);
+            color: white;
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 18px rgba(0, 80, 120, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(105deg, #164a66, #246b9e);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px rgba(0, 80, 120, 0.25);
+        }
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 80px 0 64px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #0b3b4f, #1b6d93);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #fff6e5;
+            padding: 6px 18px;
+            border-radius: 40px;
+            color: #c47d2e;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        /* --- FEATURES --- */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 56px 0;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 32px;
+            padding: 28px 24px;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0, 80, 100, 0.15);
+        }
+        .feature-icon { font-size: 2.2rem; margin-bottom: 20px; }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 12px; font-weight: 600; }
+
+        /* --- FORM --- */
+        .form-section {
+            background: white;
+            border-radius: 48px;
+            padding: 48px 40px;
+            margin: 60px 0;
+            box-shadow: 0 10px 25px -12px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .form-section h2 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .form-section .sub {
+            color: #5b6f82;
+            margin-bottom: 32px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 32px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1a2c3e;
+        }
+        .form-group label .required {
+            color: #c0392b;
+            margin-left: 2px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 1.5px solid #dce4ec;
+            border-radius: 16px;
+            font-size: 1rem;
+            background: #f9fcff;
+            transition: border 0.2s;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c7cb6;
+            box-shadow: 0 0 0 4px rgba(44, 124, 182, 0.12);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+        .form-row-actions {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        .form-status {
+            padding: 12px 20px;
+            border-radius: 16px;
+            font-weight: 500;
+            display: none;
+        }
+        .form-status.success {
+            display: block;
+            background: #e3f7e3;
+            color: #1a6e1a;
+            border: 1px solid #b8e0b8;
+        }
+        .form-status.error {
+            display: block;
+            background: #ffe6e6;
+            color: #a93226;
+            border: 1px solid #f5c6c6;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            text-align: center;
+            padding: 48px 0 32px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            color: #5b6f82;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .social-links a {
+            color: #2c4b6c;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .social-links a:hover {
+            color: #0f5f8b;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav { flex-direction: column; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-section { padding: 28px 20px; }
+        }
+    </style>
 </head>
 <body>
-  <header class="navbar container"><div class="logo">AI<span>StudyOrbit</span></div>
-    <nav><a href="index.html">Home</a><a href="search.html">Universities</a><a href="assessment.html">Assessment</a><a href="login.html" class="btn-primary">Login</a></nav>
-  </header>
 
-  <main class="container">
-    <h2 class="section-title">🧠 Free AI Assessment</h2>
-    <p class="text-muted" style="text-align:center; max-width:600px; margin:0 auto 32px;">
-      Fill in the form below. Our AI will analyse your preferences and send you a personalised WhatsApp message with university recommendations.
-    </p>
+<!-- ===== HEADER ===== -->
+<div class="header">
+    <div class="container">
+        <div class="nav">
+            <div class="logo">🎓 AI Study China</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#howitworks">How it works</a>
+                <a href="#assessment" class="btn-outline">Free Assessment</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <!-- TALLY EMBED (replace the src with your actual Tally form URL) -->
-    <div style="border-radius:24px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-      <iframe 
-        src="https://tally.so/embed/your-form-id" 
-        width="100%" 
-        height="800" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0" 
-        title="AI Assessment Form"
-        style="display:block; width:100%;"
-      ></iframe>
+<!-- ===== HERO ===== -->
+<div class="container">
+    <section class="hero">
+        <div class="badge">✨ AI-Powered Scholarship Advisor</div>
+        <h1>Study in China with<br>realistic scholarship advice</h1>
+        <p>Get 3–5 personalized university recommendations on WhatsApp – free.</p>
+        <a href="#assessment" class="btn-primary">🎯 Get your free assessment →</a>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <div id="howitworks"></div>
+    <div class="features">
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>WhatsApp in minutes</h3>
+            <p>Fill in your degree, CGPA, budget and funding preference. Our AI advisor sends matches directly to your WhatsApp.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎓</div>
+            <h3>Honest scholarship advice</h3>
+            <p>No false promises. We tell you if a CSC scholarship is realistic or if you need provincial / self‑financed alternatives.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Cost transparency</h3>
+            <p>See annual costs, estimated student contribution after scholarship, and a realistic “reality check”.</p>
+        </div>
     </div>
 
-    <div style="margin-top:32px; padding:20px; background:#f0f4ff; border-radius:16px; text-align:center;">
-      <p style="margin-bottom:8px;"><strong>📱 After you submit, you will receive a WhatsApp message from us within a few minutes.</strong></p>
-      <p class="text-muted text-sm">Make sure you enter your WhatsApp number correctly.</p>
-    </div>
-  </main>
+    <!-- ===== NATIVE ASSESSMENT FORM ===== -->
+    <div id="assessment" class="form-section">
+        <h2>🚀 Free AI Assessment</h2>
+        <p class="sub">Fill in your details and we'll send university recommendations to your WhatsApp within minutes.</p>
 
-  <footer class="footer container"><p>© 2026 AI Study Orbit</p></footer>
+        <form id="assessmentForm" novalidate>
+            <div class="form-grid">
+
+                <!-- Full Name -->
+                <div class="form-group full-width">
+                    <label>Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" placeholder="e.g. Ahmed Khan" required />
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="form-group full-width">
+                    <label>WhatsApp Number <span class="required">*</span></label>
+                    <input type="tel" id="whatsapp" placeholder="e.g. +923001234567" required />
+                    <small style="color:#5b6f82;">Include country code (e.g. +92 for Pakistan)</small>
+                </div>
+
+                <!-- Desired Major -->
+                <div class="form-group">
+                    <label>Desired Major <span class="required">*</span></label>
+                    <select id="major" required>
+                        <option value="">Select major...</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Computer Science">Computer Science / IT</option>
+                        <option value="Business">Business / Management</option>
+                        <option value="Medicine">Medicine / Health Sciences</option>
+                        <option value="Arts">Arts / Humanities</option>
+                        <option value="Science">Science / Mathematics</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Degree Level -->
+                <div class="form-group">
+                    <label>Degree Level <span class="required">*</span></label>
+                    <select id="degree" required>
+                        <option value="">Select degree...</option>
+                        <option value="Bachelor">Bachelor</option>
+                        <option value="Master">Master</option>
+                        <option value="PhD">PhD</option>
+                        <option value="Diploma">Diploma / Foundation</option>
+                    </select>
+                </div>
+
+                <!-- CGPA -->
+                <div class="form-group">
+                    <label>Current CGPA (out of 4.0)</label>
+                    <input type="number" id="cgpa" placeholder="e.g. 3.2" step="0.01" min="0" max="4" />
+                </div>
+
+                <!-- Monthly Budget (USD) -->
+                <div class="form-group">
+                    <label>Monthly Budget (USD) <span class="required">*</span></label>
+                    <select id="budget" required>
+                        <option value="">Select budget...</option>
+                        <option value="500">$500 – $800</option>
+                        <option value="900">$900 – $1,200</option>
+                        <option value="1300">$1,300 – $1,800</option>
+                        <option value="1800">$1,800+</option>
+                    </select>
+                </div>
+
+                <!-- Teaching Language -->
+                <div class="form-group">
+                    <label>Preferred Teaching Language</label>
+                    <select id="language">
+                        <option value="">Any</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="English">English</option>
+                        <option value="Both">Both</option>
+                    </select>
+                </div>
+
+                <!-- City Tier -->
+                <div class="form-group">
+                    <label>City Tier Preference</label>
+                    <select id="cityTier">
+                        <option value="">Any</option>
+                        <option value="Tier1">Tier 1 (Beijing, Shanghai, Guangzhou)</option>
+                        <option value="Tier2">Tier 2 (Chengdu, Wuhan, Nanjing)</option>
+                        <option value="Tier3">Tier 3 (Changsha, Kunming, Lanzhou)</option>
+                    </select>
+                </div>
+
+                <!-- Scholarship Needed -->
+                <div class="form-group">
+                    <label>Scholarship Assistance</label>
+                    <select id="scholarshipNeeded">
+                        <option value="no">Not needed</option>
+                        <option value="yes" selected>Yes, I need scholarship advice</option>
+                    </select>
+                </div>
+
+                <!-- Additional Notes -->
+                <div class="form-group full-width">
+                    <label>Additional Notes (optional)</label>
+                    <textarea id="notes" placeholder="Any special requirements or questions..."></textarea>
+                </div>
+
+                <!-- Status & Submit -->
+                <div class="form-row-actions">
+                    <button type="submit" class="btn-primary" id="submitBtn">📩 Send & get WhatsApp reply</button>
+                    <div id="formStatus" class="form-status"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+    <div class="social-links">
+        <a href="https://www.facebook.com/@AIStudyChina" target="_blank">📘 Facebook Page</a>
+        <a href="https://myeduorbit.com" target="_blank">🌐 myeduorbit.com</a>
+        <a href="#" target="_blank">💬 WhatsApp Channel (coming soon)</a>
+    </div>
+    <div>© 2026 AI Study China — honest scholarship guidance for international students</div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    (function() {
+        const form = document.getElementById('assessmentForm');
+        const statusDiv = document.getElementById('formStatus');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // --- Your n8n webhook URL (replace with your actual endpoint) ---
+        const WEBHOOK_URL = 'https://your-n8n-instance.com/webhook/assessment';
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Disable button & show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Sending...';
+            statusDiv.className = 'form-status';
+            statusDiv.style.display = 'none';
+
+            // Gather data
+            const payload = {
+                fullName: document.getElementById('fullName').value.trim(),
+                whatsapp: document.getElementById('whatsapp').value.trim(),
+                major: document.getElementById('major').value,
+                degree: document.getElementById('degree').value,
+                cgpa: document.getElementById('cgpa').value || null,
+                budget: document.getElementById('budget').value,
+                language: document.getElementById('language').value || null,
+                cityTier: document.getElementById('cityTier').value || null,
+                scholarshipNeeded: document.getElementById('scholarshipNeeded').value,
+                notes: document.getElementById('notes').value.trim() || null,
+                source: 'website_native_form'
+            };
+
+            // Basic validation
+            if (!payload.fullName || !payload.whatsapp || !payload.major || !payload.degree || !payload.budget) {
+                showStatus('Please fill in all required fields (*).', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = '📩 Send & get WhatsApp reply';
+                return;
+            }
+
+            try {
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    showStatus('✅ Done! Check your WhatsApp within 2–5 minutes.', 'success');
+                    form.reset();
+                } else {
+                    showStatus('❌ Something went wrong. Please try again later.', 'error');
+                    console.error('n8n error:', result);
+                }
+            } catch (error) {
+                showStatus('❌ Network error. Please check your connection.', 'error');
+                console.error('Fetch error:', error);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '📩 Send & get WhatsApp reply';
+            }
+        });
+
+        function showStatus(message, type) {
+            statusDiv.textContent = message;
+            statusDiv.className = 'form-status ' + type;
+            statusDiv.style.display = 'block';
+        }
+    })();
+</script>
+
 </body>
 </html>

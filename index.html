@@ -1,50 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Study Orbit – Study in China</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="navbar container">
-    <div class="logo">AI<span>StudyOrbit</span></div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="search.html">Universities</a>
-      <a href="assessment.html">Assessment</a>
-      <a href="guide.html">Guide</a>
-      <a href="support.html">Support</a>
-      <a href="vip.html">VIP</a>
-      <a href="additional.html">Services</a>
-      <a href="login.html" class="btn-primary">Login</a>
-    </nav>
-  </header>
+<header class="navbar container">
+  <div class="logo">AI<span>StudyOrbit</span></div>
+  <nav class="main-nav">
+    <!-- Home (no dropdown) -->
+    <a href="index.html">Home</a>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Your Gateway to Chinese Universities</h1>
-      <p>AI‑powered matching, step‑by‑step guides, and full application support.</p>
-      <div class="hero-buttons">
-        <a href="assessment.html" class="btn-primary">Get Free Assessment</a>
-        <a href="search.html" class="btn-outline">Browse Universities</a>
+    <!-- Universities (with dropdown) -->
+    <div class="nav-dropdown">
+      <a href="search.html">Universities</a>
+      <div class="dropdown-mega">
+        <div class="mega-column">
+          <h4>By Region</h4>
+          <a href="#">Beijing</a>
+          <a href="#">Shanghai</a>
+          <a href="#">Guangdong</a>
+          <a href="#">Liaoning</a>
+          <a href="#">Sichuan</a>
+        </div>
+        <div class="mega-column">
+          <h4>By Degree</h4>
+          <a href="#">Bachelor</a>
+          <a href="#">Master</a>
+          <a href="#">PhD</a>
+          <a href="#">Diploma</a>
+          <a href="#">Foundation</a>
+        </div>
+        <div class="mega-column">
+          <h4>By Language</h4>
+          <a href="#">English-taught</a>
+          <a href="#">Chinese-taught</a>
+          <a href="#">Bilingual</a>
+        </div>
+        <div class="mega-column">
+          <h4>Top Universities</h4>
+          <a href="#">Tsinghua University</a>
+          <a href="#">Peking University</a>
+          <a href="#">Shanghai Jiao Tong</a>
+          <a href="#">Fudan University</a>
+          <a href="#">Zhejiang University</a>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section class="container" id="pricing">
-    <h2 class="section-title">Choose Your Path</h2>
-    <div class="tier-grid">
-      <div class="tier-card"><div class="tier-name">Free Assessment</div><div class="tier-price">$0</div><ul class="tier-features"><li>University search &amp; filter</li><li>AI‑powered matching</li><li>Document requirements</li><li>Admission process guide</li><li>Scholarship eligibility</li></ul><a href="assessment.html" class="btn-secondary">Start Now</a></div>
-      <div class="tier-card"><div class="tier-name">Process Guide</div><div class="tier-price">$4.99</div><ul class="tier-features"><li>All Free features</li><li>Step‑by‑step PDF guide</li><li>Personalized checklist</li><li>Application timeline</li><li>Deadline tracking</li></ul><a href="guide.html" class="btn-primary">Get Guide</a></div>
-      <div class="tier-card"><div class="tier-name">Full Support</div><div class="tier-price">$49.99</div><ul class="tier-features"><li>All Guide features</li><li>Application assistance</li><li>Document review</li><li>Interview preparation</li><li>Status dashboard</li></ul><a href="support.html" class="btn-primary">Apply Now</a></div>
-      <div class="tier-card vip"><div class="tier-badge">⭐ BEST VALUE</div><div class="tier-name">VIP Support</div><div class="tier-price">$99.99</div><ul class="tier-features"><li>All Full Support features</li><li>Dedicated agent</li><li>Document submission</li><li>Airport pickup</li><li>24/7 availability</li></ul><a href="vip.html" class="btn-primary">Go VIP</a></div>
+    <!-- Assessment (with dropdown) -->
+    <div class="nav-dropdown">
+      <a href="assessment.html">Assessment</a>
+      <div class="dropdown-mega">
+        <div class="mega-column">
+          <h4>Free Services</h4>
+          <a href="assessment.html">AI Assessment</a>
+          <a href="#">Scholarship Check</a>
+          <a href="#">Document Checklist</a>
+        </div>
+        <div class="mega-column">
+          <h4>Paid Services</h4>
+          <a href="guide.html">Process Guide ($4.99)</a>
+          <a href="support.html">Full Support ($49.99)</a>
+          <a href="vip.html">VIP Support ($99.99)</a>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <footer class="footer container">
-    <p>© 2026 AI Study Orbit — Made for international students.</p>
-  </footer>
-  <script src="script.js"></script>
-</body>
-</html>
+    <!-- Resources (new dropdown) -->
+    <div class="nav-dropdown">
+      <a href="#">Resources</a>
+      <div class="dropdown-mega">
+        <div class="mega-column">
+          <h4>Learn</h4>
+          <a href="#">About CSCA</a>
+          <a href="#">Application Guide</a>
+          <a href="#">Visa Process</a>
+          <a href="#">Cost of Living</a>
+        </div>
+        <div class="mega-column">
+          <h4>Support</h4>
+          <a href="#">FAQ</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Blog</a>
+          <a href="#">Testimonials</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login / Sign Up -->
+    <a href="login.html" class="btn-primary">Login</a>
+  </nav>
+</header>

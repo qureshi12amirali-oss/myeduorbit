@@ -1,14 +1,15 @@
 // ============================================
-// BASEROW API CONFIGURATION
+// BASEROW API CONFIGURATION (Updated)
 // ============================================
 
 const BASEROW_CONFIG = {
-    apiUrl: 'http://localhost/api/database/rows/table/',
-    token: 'YOUR_API_TOKEN_HERE',  // Replace with your actual token
+    // Use the same URL pattern as your working browser links
+    apiUrl: 'http://localhost/database/37/table/',
+    token: 'ZAoTkSJUUgp86MPu9Jy993M6FyO69ofV',
     tables: {
-        universities: 568,  // Replace with your actual table ID
-        scholarships: 569,  // Replace with your actual table ID
-        errors: 570         // Replace with your actual table ID
+        universities: 830,   // University list table
+        scholarships: 569,   // Uni Scholarships table
+        errors: 570          // Error table (if you have one)
     }
 };
 
@@ -37,6 +38,33 @@ async function fetchUniversities() {
     } catch (error) {
         console.error('Error fetching universities:', error);
         return [];
+    }
+}
+
+// ============================================
+// FETCH A SINGLE UNIVERSITY BY ID
+// ============================================
+
+async function fetchUniversityById(id) {
+    try {
+        const response = await fetch(
+            `${BASEROW_CONFIG.apiUrl}${BASEROW_CONFIG.tables.universities}/${id}?user_field_names=true`,
+            {
+                headers: {
+                    'Authorization': `Token ${BASEROW_CONFIG.token}`,
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching university:', error);
+        return null;
     }
 }
 
@@ -74,6 +102,10 @@ async function fetchScholarships() {
 
 async function searchUniversities(query = '', filters = {}) {
     const allUniversities = await fetchUniversities();
+    
+    if (!allUniversities || allUniversities.length === 0) {
+        return [];
+    }
     
     return allUniversities.filter(uni => {
         let match = true;
@@ -135,6 +167,7 @@ function displayUniversities(universities) {
             <div class="tags">
                 <span>${uni['Degree Levels'] || 'N/A'}</span>
                 <span>${uni['Teaching Language'] || 'N/A'}</span>
+                ${uni['City Tier'] ? `<span>${uni['City Tier']}</span>` : ''}
             </div>
             <div class="actions">
                 <a href="university-detail.html?id=${uni.id}" style="color:#2563eb;">View →</a>
@@ -151,7 +184,6 @@ function displayUniversities(universities) {
 // ============================================
 
 function applyToUniversity(universityId) {
-    // Redirect to application page or open modal
     window.location.href = `apply.html?university=${universityId}`;
 }
 
@@ -159,12 +191,20 @@ function applyToUniversity(universityId) {
 // INITIALIZE SEARCH PAGE
 // ============================================
 
-// Run when the page loads
 document.addEventListener('DOMContentLoaded', async function() {
-    // Check if we're on the search page
     const searchContainer = document.getElementById('searchResults');
     if (searchContainer) {
-        const universities = await fetchUniversities();
-        displayUniversities(universities);
+        try {
+            const universities = await fetchUniversities();
+            displayUniversities(universities);
+            console.log(`✅ Loaded ${universities.length} universities from Baserow`);
+        } catch (error) {
+            console.error('Failed to load universities:', error);
+            searchContainer.innerHTML = `
+                <div style="text-align:center; padding:40px; color:#c0392b;">
+                    <p>⚠️ Failed to load universities. Please check your connection.</p>
+                </div>
+            `;
+        }
     }
 });
